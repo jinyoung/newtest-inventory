@@ -1,0 +1,26 @@
+package newtest.domain;
+
+import java.util.Date;
+import java.util.List;
+import javax.persistence.*;
+import lombok.Data;
+import newtest.BasicApplication;
+
+@Entity
+@Table(name = "Product_table")
+@Data
+public class Product {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Long id;
+
+    private String name;
+
+    public static ProductRepository repository() {
+        ProductRepository productRepository = BasicApplication.applicationContext.getBean(
+            ProductRepository.class
+        );
+        return productRepository;
+    }
+}
