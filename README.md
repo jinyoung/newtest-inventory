@@ -1,7 +1,7 @@
 # 
 
 ## Model
-www.msaez.io/#/storming/newtest/inventory
+www.msaez.io/#/storming/newtest
 
 ## Before Running Services
 ### Make sure there is a Kafka server running
@@ -35,7 +35,7 @@ mvn spring-boot:run
 - basic
 ```
  http :8088/companies name="name" industry="industry" foundedDate="foundedDate" code="code" 
- http :8088/products id="id" stock="stock" 
+ http :8088/products id="id" stock="stock" name="name" 
 ```
 - sales
 ```

@@ -110,6 +110,7 @@
             
             me.newValue = {
                 'stock': 0,
+                'name': '',
             }
         },
         methods:{

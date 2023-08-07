@@ -17,6 +17,7 @@
 
         <v-card-text>
             <Number label="" v-model="value.stock" :editMode="editMode" :inputUI="''"/>
+            <String label="" v-model="value.name" :editMode="editMode" :inputUI="''"/>
         </v-card-text>
 
         <v-card-actions>

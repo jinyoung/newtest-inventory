@@ -2,6 +2,8 @@
     <div>
         <div class="label-title">Stock</div>
         <Number label="입력하세요." v-model="value.stock" :editMode="editMode"/>
+        <div class="label-title">Name</div>
+        <String label="입력하세요." v-model="value.name" :editMode="editMode"/>
 
         <v-divider class="border-opacity-100 my-divider"></v-divider>
         <v-layout row justify-end>

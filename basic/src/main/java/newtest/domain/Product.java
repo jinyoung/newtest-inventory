@@ -18,6 +18,8 @@ public class Product {
 
     private Long stock;
 
+    private String name;
+
     public static ProductRepository repository() {
         ProductRepository productRepository = BasicApplication.applicationContext.getBean(
             ProductRepository.class
