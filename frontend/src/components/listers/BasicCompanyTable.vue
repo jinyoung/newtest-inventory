@@ -69,6 +69,7 @@
                     { text: "name", value: "name" },
                     { text: "industry", value: "industry" },
                     { text: "foundedDate", value: "foundedDate" },
+                    { text: "code", value: "code" },
                 ],
             company : [],
             newValue: {},
@@ -88,7 +89,8 @@
             this.newValue = {
                 'name': '',
                 'industry': '',
-                'foundedDate': '2023-08-03',
+                'foundedDate': '2023-08-07',
+                'code': '',
             }
         },
         methods: {

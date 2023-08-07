@@ -7,13 +7,14 @@
 
     const BaseRepository = require('../../repository/BaseRepository')
 
-    export default {
-        name: 'base-entity-ui',
+    export default{
+        name: 'baseEntityUi',
         props: {
             offline: Boolean,
             value: [Object, String, Number, Boolean, Array],
             editMode: Boolean,
             isNew: Boolean,
+            inList: Boolean,
         },
         computed: {},
         data: () => ({
@@ -25,18 +26,17 @@
             snackbar: {
                 status: false,
                 timeout: 5000,
-               text:''
+                text: ''
             },
             updateCompanyDiagram: false,
-            updateProductDiagram: false,
-            updateSalesOrderDiagram: false,
-            updateInventoryDiagram: false,
         }),
-        created() {
+        created(){
+            if(this.value==null) this.value = {}
+
             this.repository = new BaseRepository(axios, this.path)
         },
-        methods: {
-            selectFile() {
+        methods:{
+            selectFile(){
                 if(this.editMode == false) {
                     return false;
                 }
@@ -45,7 +45,7 @@
                 input.type = "file";
                 input.accept = "image/*";
                 input.id = "uploadInput";
-
+                
                 input.click();
                 input.onchange = function (event) {
                     var file = event.target.files[0]
@@ -55,6 +55,7 @@
                         var result = reader.result;
                         me.imageUrl = result;
                         me.value.photo = result;
+                        
                     };
                     reader.readAsDataURL( file );
                 };
@@ -62,28 +63,52 @@
             edit() {
                 this.editMode = true;
             },
-            async save() {
+            async save(){
                 try {
                     var temp = null;
 
                     if(!this.offline) {
+                        
                         temp = await this.repository.save(this.value, this.isNew)
+                        
                     }
                     if(this.value!=null) {
-                        for(var k in temp.data) this.value[k] = temp.data[k];
+                        for(var k in temp.data) this.value[k]=temp.data[k];
                     } else {
-                        this.value = temp.data
+                        this.value = temp.data;
                     }
 
                     this.editMode = false;
                     this.$emit('input', this.value);
 
-                    if(this.isNew) {
+                    if (this.isNew) {
                         this.$emit('add', this.value);
                     } else {
                         this.$emit('edit', this.value);
                     }
+
                     location.reload()
+
+                } catch(e) {
+                    this.snackbar.status = true
+                    if(e.response && e.response.data.message) {
+                        this.snackbar.text = e.response.data.message
+                    } else {
+                        this.snackbar.text = e
+                    }
+                }
+                
+            },
+            async delete(){
+                try {
+                    if (!this.offline) {
+                        await this.repository.delete(this.value)
+                    }
+                    this.editMode = false;
+                    this.isDeleted = true;
+
+                    this.$emit('input', this.value);
+                    this.$emit('delete', this.value);
                 } catch(e) {
                     this.snackbar.status = true
                     if(e.response && e.response.data.message) {
@@ -93,6 +118,16 @@
                     }
                 }
             },
+            change(){
+                this.$emit('input', this.value);
+            },
+            closeDialog(){
+                this.openDialog = false
+                location.reload()
+            },
+
         },
+
     }
+
 </script>

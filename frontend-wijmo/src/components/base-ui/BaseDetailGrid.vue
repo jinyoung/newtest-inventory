@@ -3,10 +3,10 @@
 </template>
  
  <script>
-     import BaseGrid from '../base-ui/BaseGrid';
+     import BaseGrid from './BaseGrid.vue';
  
      export default {
-         name: 'base-detail-grid',
+         name: 'BaseDetailGrid',
          mixins:[BaseGrid],
          
          async created() {

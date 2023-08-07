@@ -23,13 +23,14 @@
         props: {
             value:{
                 type: String,
-                default: ''
+                default: null /// TODO '' is not null !
             },
             editMode: Boolean,
             label: String,
         },
         methods:{
             change(){
+                if(this.value==='') this.value = null  //TODO '' is not null
                 this.$emit("input", this.value);
             }
         }

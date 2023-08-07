@@ -1,5 +1,6 @@
 package newtest.domain;
 
+import java.time.LocalDate;
 import java.util.Date;
 import java.util.List;
 import javax.persistence.*;
@@ -19,7 +20,10 @@ public class Company {
 
     private String industry;
 
-    private LocalDate foundedDate;
+    private Date foundedDate;
+
+    @Id
+    private String code;
 
     @PostPersist
     public void onPostPersist() {
@@ -28,13 +32,16 @@ public class Company {
 
         CompanyUpdated companyUpdated = new CompanyUpdated(this);
         companyUpdated.publishAfterCommit();
-
-        CompanyDeleted companyDeleted = new CompanyDeleted(this);
-        companyDeleted.publishAfterCommit();
     }
 
     @PrePersist
     public void onPrePersist() {}
+
+    @PreRemove
+    public void onPreRemove() {
+        CompanyDeleted companyDeleted = new CompanyDeleted(this);
+        companyDeleted.publishAfterCommit();
+    }
 
     public static CompanyRepository repository() {
         CompanyRepository companyRepository = BasicApplication.applicationContext.getBean(

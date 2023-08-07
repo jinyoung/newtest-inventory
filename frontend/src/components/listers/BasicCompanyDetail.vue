@@ -14,6 +14,9 @@
             <div>
                 <Date label="FoundedDate" v-model="item.foundedDate" :editMode="editMode" @change="change" />
             </div>
+            <div>
+                <String label="Code" v-model="item.code" :editMode="editMode" @change="change" />
+            </div>
         </v-card-text>
 
         <v-card-actions>

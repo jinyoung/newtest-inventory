@@ -43,12 +43,14 @@
                             
                             
                             
+                            
                         </v-list-item-title>
 
                         <v-list-item-subtitle style="font-size:25px; font-weight:700;">
                             [ Name :  {{data.name }} ] &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                             [ Industry :  {{data.industry }} ] &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                             [ FoundedDate :  {{data.foundedDate }} ] &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            [ Code :  {{data.code }} ] &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                         </v-list-item-subtitle>
 
                     </v-list-item-content>
@@ -118,7 +120,8 @@
             this.newValue = {
                 'name': '',
                 'industry': '',
-                'foundedDate': '2023-08-03',
+                'foundedDate': '2023-08-07',
+                'code': '',
             }
         },
         methods: {

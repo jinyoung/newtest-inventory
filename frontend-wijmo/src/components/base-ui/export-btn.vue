@@ -5,7 +5,10 @@
 </template>
 
 <script>
+import BaseGrid from './BaseGrid.vue';
+
 export default {
+    mixins:[BaseGrid],
     props: ['exportService', 'getFlex'],
     data: function () {
         return {

@@ -23,6 +23,9 @@
                             <v-list-item-subtitle>
                                 FoundedDate :  {{item.foundedDate }}
                             </v-list-item-subtitle>
+                            <v-list-item-subtitle>
+                                Code :  {{item.code }}
+                            </v-list-item-subtitle>
                         </v-list-item-content>
 
                         <v-list-item-action>
@@ -78,6 +81,8 @@
                     
                     
                     
+                    
+                    obj['code'] = arr[4]; 
                     
                     this.$emit('selected', obj);
                 }

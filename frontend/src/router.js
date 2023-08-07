@@ -13,8 +13,6 @@ import BasicProductDetail from "./components/listers/BasicProductDetail"
 import SalesSalesOrderManager from "./components/listers/SalesSalesOrderCards"
 import SalesSalesOrderDetail from "./components/listers/SalesSalesOrderDetail"
 
-import InventoryInventoryManager from "./components/listers/InventoryInventoryCards"
-import InventoryInventoryDetail from "./components/listers/InventoryInventoryDetail"
 
 
 export default new Router({
@@ -53,16 +51,6 @@ export default new Router({
                 component: SalesSalesOrderDetail
             },
 
-            {
-                path: '/inventories/inventories',
-                name: 'InventoryInventoryManager',
-                component: InventoryInventoryManager
-            },
-            {
-                path: '/inventories/inventories/:id',
-                name: 'InventoryInventoryDetail',
-                component: InventoryInventoryDetail
-            },
 
 
 

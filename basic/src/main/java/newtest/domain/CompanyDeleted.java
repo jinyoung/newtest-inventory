@@ -1,5 +1,6 @@
 package newtest.domain;
 
+import java.time.LocalDate;
 import java.util.*;
 import lombok.*;
 import newtest.domain.*;
@@ -9,7 +10,7 @@ import newtest.infra.AbstractEvent;
 @ToString
 public class CompanyDeleted extends AbstractEvent {
 
-    private UUID companyId;
+    private String code;
 
     public CompanyDeleted(Company aggregate) {
         super(aggregate);

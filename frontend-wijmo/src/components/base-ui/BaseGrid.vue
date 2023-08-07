@@ -17,8 +17,7 @@ import { ExportService } from "./export";
 import * as wjcCore from "@grapecity/wijmo";
 
 export default {
-    name: 'base-grid',
-    components:{},
+    name: 'BaseGrid',
     data: () => ({
         newValue: {},
         flex: null,
@@ -32,7 +31,6 @@ export default {
             status: false,
             text: ''
         },
-        itemToEdit: {},
     }),
     mixins:[
         BaseEntity

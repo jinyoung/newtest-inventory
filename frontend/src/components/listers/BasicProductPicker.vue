@@ -15,7 +15,7 @@
                             <v-list-item-title>
                             </v-list-item-title>
                             <v-list-item-subtitle>
-                                Name :  {{item.name }}
+                                Stock :  {{item.stock }}
                             </v-list-item-subtitle>
                         </v-list-item-content>
 

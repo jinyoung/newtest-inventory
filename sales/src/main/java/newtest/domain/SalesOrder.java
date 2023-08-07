@@ -1,5 +1,6 @@
 package newtest.domain;
 
+import java.time.LocalDate;
 import java.util.Date;
 import java.util.List;
 import javax.persistence.*;
@@ -22,6 +23,7 @@ public class SalesOrder {
 
     private String salesType;
 
+    @OneToMany
     private List<SalesItem> salesItems;
 
     @Embedded
